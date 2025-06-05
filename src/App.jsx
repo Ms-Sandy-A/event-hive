@@ -1,14 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router"
+import Register from "./pages/Register"
+import Login from "./pages/Login"
+import Home from "./pages/Home"
+import ViewEvent from "./pages/ViewEvent"
+import ViewCollege from "./pages/ViewCollege"
+import CreateEvent from "./pages/CreateEvent"
+import NotFound from "./pages/NotFound"
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+const eventHiveRouter = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/register', element: <Register /> },
+  { path: '/login', element: <Login /> },
+  { path: '/view-event', element: <ViewEvent /> },
+  { path: '/view-college', element: <ViewCollege /> },
+  { path: '/create-event', element: <CreateEvent /> },
+  { path: '*', element: <NotFound /> },
+]);
 
-export default function App() {
+export default  function App() {
   return (
     <>
-    <Navbar/>
-      <h1 className="text-7xl text-center font-bold text-blue-900">Welcome to Event Hive</h1>
-      <Footer />
+      <RouterProvider router={eventHiveRouter} />
     </>
   );
 }
